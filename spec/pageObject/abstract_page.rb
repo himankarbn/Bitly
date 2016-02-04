@@ -12,9 +12,17 @@ class AbstractPage
 	end
 
 	def navigateToApp
-		@@browser.goto('http://www.williams-sonoma.com')
+		@@browser.goto('http://www.bitly.com')
 		return HomePage.new(@@browser)
 	end
+
+	def random_num(length=5)
+    	rand(10000..99999).to_s[0,length]
+  	end
+
+  	def optimized_text
+    	@@optimized_text = "demo"+rand(1000..9999).to_s[0,4]
+  	end
 
 	def quit
 		@@browser.quit
@@ -23,5 +31,4 @@ class AbstractPage
 	def getPageTitle
 		return @@browser.title
 	end
-
 end
